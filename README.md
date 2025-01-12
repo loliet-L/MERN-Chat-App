@@ -1,0 +1,1 @@
+This is going to be MERN Stack real time chat application , wherein we can chat with another person in realtime and switch between person and AI in the chat itself to enhance user interaction and productivity,
