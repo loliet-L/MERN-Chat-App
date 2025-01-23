@@ -1,9 +1,11 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState , useContext } from 'react';
 import axios from '../config/axios';
+import { UserContext } from '../contex/user.contex';
 const Register = () => {
     const [email, setemail] = useState('');
     const [password, setpassword] = useState('');
+    const {setUser} = useContext(UserContext);
     const navigator = useNavigate('');
     function submitHandler(e) {
         e.preventDefault();
@@ -12,6 +14,8 @@ const Register = () => {
                 password
         }).then((res) => {
             console.log(res.data);
+            localStorage.setItem('token', res.data.token);
+            setUser(res.data.user);
             navigator('/');
         }).catch((err) => {
             console.log(err.response.data);

@@ -11,7 +11,7 @@ export const authUser =  async (req, res,next) =>{
         if(isblacklisted){
 
             res.cookie('token','');
-            return res.status(401).send({error: 'Unauthorized User'});
+            return res.status(401).send({error: 'Unauthorized User Blacklisted'});
         }
 
         const decode = jwt.verify(token,process.env.JWT_SECRET);
