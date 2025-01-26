@@ -17,6 +17,8 @@ router.put('/add-user',authMiddleware.authUser,
     .isArray({ each: { isString: true } }).withMessage('each user must be a string')
     ,projectController.addUserToProject);
 
+router.get('/get-project/:projectId', authMiddleware.authUser, projectController.getProjectById);
+
 export default router;
 
 
